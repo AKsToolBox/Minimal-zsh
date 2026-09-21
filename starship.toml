@@ -1,57 +1,147 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 add_newline = false
+scan_timeout = 30
+palette = "informative"
 
-format = "$directory$os$git_branch$git_status$nodejs$rust$golang$php $character"
+format = """
+$time\
+$username\
+$hostname\
+$directory\
+$os\
+$git_branch\
+$git_status\
+$nodejs\
+$rust\
+$golang\
+$php\
+$python\
+$docker_context\
+$kubernetes\
+$terraform\
+$package\
+$jobs\
+$cmd_duration\
+$status\
+$character
+"""
+
+[palettes.informative]
+red = "#f7768e"
+orange = "#ff9e64"
+yellow = "#e0af68"
+green = "#9ece6a"
+cyan = "#7dcfff"
+blue = "#7aa2f7"
+purple = "#bb9af7"
+pink = "#f5c2e7"
+white = "#c0caf5"
+muted = "#565f89"
+
+[time]
+disabled = false
+format = "[$time](bold muted) "
+time_format = "%H:%M:%S"
+
+[username]
+show_always = true
+style_user = "bold cyan"
+style_root = "bold red"
+format = "[$user]($style) "
+
+[hostname]
+ssh_only = false
+format = "[@$hostname](bold blue) "
 
 [os]
 disabled = false
-format = "[$symbol](#blue) "
+format = "[$symbol](bold blue) "
 
 [os.symbols]
-Ubuntu  = "󰕈"
-Artix   = "󰣇"
-Arch    = "󰣇"
+Ubuntu = "󰕈"
+Artix = "󰣇"
+Arch = "󰣇"
 CachyOS = "󰣇"
-Macos   = ""
+Macos = ""
 
 [directory]
-format            = "[$path](cyan) "
+format = "[$path](bold cyan) "
 truncation_length = 4
-truncate_to_repo  = true
+truncate_to_repo = true
+truncation_symbol = "…/"
 
 [git_branch]
-symbol = ""
-format = "[$symbol $branch](bold purple) "
+symbol = " "
+format = "[$symbol$branch](bold purple) "
 
 [git_status]
-format     = "($ahead_behind$staged$modified$untracked$deleted$conflicted)"
-ahead      = "[⇡$count ](bold cyan)"
-behind     = "[⇣$count ](bold cyan)"
-diverged   = "[⇡$ahead_count⇣$behind_count ](bold cyan)"
-staged     = "[+$count ](bold green)"
-modified   = "[●$count ](bold yellow)"
-untracked  = "[?$count ](bold white)"
-deleted    = "[✘$count ](bold red)"
-conflicted = "[⚡$count ](bold red)"
+format = "([$ahead_behind$staged$modified$untracked$deleted$renamed$conflicted](bold yellow)) "
+ahead = "[⇡$count](bold cyan)"
+behind = "[⇣$count](bold cyan)"
+diverged = "[⇡$ahead_count⇣$behind_count](bold cyan)"
+staged = "[+$count](bold green)"
+modified = "[~$count](bold yellow)"
+untracked = "[?$count](bold white)"
+deleted = "[-$count](bold red)"
+renamed = "[»$count](bold purple)"
+conflicted = "[!$count](bold red)"
 
 [nodejs]
-symbol = ""
-format = "[$symbol $version](green) "
+symbol = " "
+format = "[$symbol$version](bold green) "
 
 [rust]
-symbol = ""
-format = "[$symbol $version](red) "
+symbol = " "
+format = "[$symbol$version](bold red) "
 
 [golang]
-symbol = ""
-format = "[$symbol $version](cyan) "
+symbol = " "
+format = "[$symbol$version](bold cyan) "
 
 [php]
-symbol = ""
-format = "[$symbol $version](purple) "
+symbol = " "
+format = "[$symbol$version](bold purple) "
+
+[python]
+symbol = " "
+format = "[$symbol$version](bold yellow) "
+
+[docker_context]
+symbol = " "
+format = "[$symbol$context](bold cyan) "
+
+[kubernetes]
+disabled = false
+symbol = "󱃾 "
+format = "[$symbol$context(::$namespace)](bold blue) "
+
+[terraform]
+symbol = "󱁢 "
+format = "[$symbol$workspace](bold purple) "
+
+[package]
+symbol = "󰏗 "
+format = "[$symbol$version](bold pink) "
+
+[jobs]
+symbol = "✦ "
+format = "[$symbol$number](bold orange) "
+
+[cmd_duration]
+min_time = 2000
+format = "took [$duration](bold muted) "
+
+[status]
+disabled = false
+symbol = "✖ "
+format = "[$symbol$status](bold red) "
+not_found_symbol = "󰍉 "
+not_executable_symbol = "󰀪 "
+sigint_symbol = "⚠ "
+signal_symbol = "⚡ "
 
 [character]
-success_symbol = "[❯](green)"
-error_symbol   = "[❯](red)"
-vimcmd_symbol  = "[❮](blue)"
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
+vimcmd_symbol = "[❮](bold blue)"
