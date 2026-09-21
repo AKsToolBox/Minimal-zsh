@@ -1,5 +1,3 @@
-# ~/.config/zsh/.zshenv
-
 # ---------- XDG base directories ----------
 # Centralizes config/cache/data locations
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -9,8 +7,8 @@ export XDG_STATE_HOME="$HOME/.local/state"
 
 # ---------- Editor ----------
 # Default editor used by git, crontab, etc.
-export EDITOR="nvim"
-export VISUAL="nvim"
+export EDITOR="nano"
+export VISUAL="nano"
 
 # ---------- Pager ----------
 if command -v bat >/dev/null 2>&1; then
