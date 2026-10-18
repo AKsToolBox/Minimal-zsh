@@ -99,3 +99,9 @@ source "$ZDOTDIR/plugins.zsh"
 
 # Prompt/theme
 source "$ZDOTDIR/prompt.zsh"
+
+
+export LIBVIRT_DEFAULT_URI="qemu:///system" 
+alias pentest-ai='/vm-storage/AI/scripts/venv/bin/python /vm-storage/AI/scripts/pentest_ai.py'
+
+export PATH="$PATH:$(go env GOPATH)/bin"
