@@ -67,3 +67,9 @@ alias stream='mpv av://v4l2:/dev/video4 --fullscreen --demuxer-lavf-o=input_form
 # =========================================================
 
 alias haven-notify='/vm-storage/pentest/Working/scripts/haven-notify.py'
+
+# =========================================================
+# AI / Pentest Tools
+# =========================================================
+
+alias pentest-ai='/vm-storage/AI/scripts/venv/bin/python /vm-storage/AI/scripts/pentest_ai.py'

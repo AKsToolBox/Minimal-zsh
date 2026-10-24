@@ -52,38 +52,14 @@ zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/s
 zstyle ':completion:*:sudo:*' environ PATH="$PATH:/usr/local/sbin:/usr/sbin:/sbin"
 
 # =========================================================
-# Fuzzy finder
+# Fuzzy finder (fzf)
 # =========================================================
 
-# # macOS / Homebrew (Apple Silicon)
-# # if [[ -f /opt/homebrew/opt/fzf/shell/key-bindings.zsh ]]; then
-#   source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
-#   source /opt/homebrew/opt/fzf/shell/completion.zsh
-# fi
-
-# # macOS / Homebrew (Intel)
-# if [[ -f /usr/local/opt/fzf/shell/key-bindings.zsh ]]; then
-#   source /usr/local/opt/fzf/shell/key-bindings.zsh
-#   source /usr/local/opt/fzf/shell/completion.zsh
-# fi
-
-# # Arch
-# if [[ -f /usr/share/fzf/key-bindings.zsh ]]; then
-#   source /usr/share/fzf/key-bindings.zsh
-#   source /usr/share/fzf/completion.zsh
-# fi
-
-# Ubuntu
+# Debian / Ubuntu / Parrot system fzf integration
 if [[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ]]; then
   source /usr/share/doc/fzf/examples/key-bindings.zsh
   source /usr/share/doc/fzf/examples/completion.zsh
 fi
-
-# # Local Git-cloned fzf
-# if [[ -f "$HOME/.fzf/shell/key-bindings.zsh" ]]; then
-#   source "$HOME/.fzf/shell/key-bindings.zsh"
-#   source "$HOME/.fzf/shell/completion.zsh"
-# fi
 
 # =========================================================
 # Navi (cheatsheet widget)
@@ -111,12 +87,7 @@ source "$ZDOTDIR/plugins.zsh"
 # Prompt/theme
 source "$ZDOTDIR/prompt.zsh"
 
+# Local machine secrets & overrides (Git-ignored)
+[[ -f "$ZDOTDIR/local.zsh" ]] && source "$ZDOTDIR/local.zsh"
 
-export LIBVIRT_DEFAULT_URI="qemu:///system" 
-alias pentest-ai='/vm-storage/AI/scripts/venv/bin/python /vm-storage/AI/scripts/pentest_ai.py'
-
-export PATH="$PATH:$(go env GOPATH)/bin"
-
-# Antigravity CLI Gemini API Key
-export GEMINI_API_KEY="AQ.Ab8RN6Ic1GLujYZYVvdrIx_1Bdih3j3siorEnYUSyQ_G3zGwUA"
 

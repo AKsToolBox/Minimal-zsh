@@ -25,4 +25,11 @@ export STARSHIP_CONFIG="$ZDOTDIR/starship.toml"
 
 # ---------- PATH ----------
 # Personal binaries/scripts & administrative sbin paths
-export PATH="$HOME/.local/bin:$HOME/.gemini/bin:$PATH:/usr/local/sbin:/usr/sbin:/sbin"
+export GOPATH="${GOPATH:-$HOME/go}"
+export PATH="$HOME/.local/bin:$HOME/.gemini/bin:$GOPATH/bin:$PATH:/usr/local/sbin:/usr/sbin:/sbin"
+
+# ---------- Virtualization ----------
+export LIBVIRT_DEFAULT_URI="qemu:///system"
+
+# ---------- Machine-Local Secrets (Git-ignored) ----------
+[[ -f "${ZDOTDIR:-$HOME/.config/zsh}/local.zsh" ]] && source "${ZDOTDIR:-$HOME/.config/zsh}/local.zsh"
