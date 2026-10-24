@@ -116,3 +116,7 @@ export LIBVIRT_DEFAULT_URI="qemu:///system"
 alias pentest-ai='/vm-storage/AI/scripts/venv/bin/python /vm-storage/AI/scripts/pentest_ai.py'
 
 export PATH="$PATH:$(go env GOPATH)/bin"
+
+# Antigravity CLI Gemini API Key
+export GEMINI_API_KEY="AQ.Ab8RN6Ic1GLujYZYVvdrIx_1Bdih3j3siorEnYUSyQ_G3zGwUA"
+
