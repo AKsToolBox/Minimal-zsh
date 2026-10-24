@@ -61,3 +61,9 @@ alias dotfiles='git -C "${ZDOTDIR:-$HOME/.config/zsh}"'
 # =========================================================
 
 alias stream='mpv av://v4l2:/dev/video4 --fullscreen --demuxer-lavf-o=input_format=mjpeg,framerate=30 --profile=low-latency --untimed'
+
+# =========================================================
+# Antigravity / Haven MCP Notifications
+# =========================================================
+
+alias haven-notify='/vm-storage/pentest/Working/scripts/haven-notify.py'
