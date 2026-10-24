@@ -16,17 +16,15 @@ bindkey '^[^H' backward-kill-word       # Alt+Backspace (alt sequence)
 bindkey '^[d' kill-word                 # Alt+D -> Kill word forward
 
 # ---------------------------------------------------------
-# 2. NAVI CHEATSHEET
+# 2. FZF FILE PICKER
 # ---------------------------------------------------------
-if (( $+widgets[_navi_widget] )); then
-  bindkey '^G' _navi_widget             # Ctrl+G -> navi cheatsheet widget
-fi
+bindkey '^G' _fzf_file_no_hidden        # Ctrl+G -> fzf (no hidden files)
 
 # ---------------------------------------------------------
-# 2b. FZF FILE PICKER
+# 2b. NAVI CHEATSHEET
 # ---------------------------------------------------------
-if (( $+widgets[_fzf_file_no_hidden] )); then
-  bindkey '^F' _fzf_file_no_hidden      # Ctrl+F -> fzf (no hidden files)
+if (( $+widgets[_navi_widget] )); then
+  bindkey '^N' _navi_widget             # Ctrl+N -> navi cheatsheet widget
 fi
 
 # ---------------------------------------------------------
@@ -35,9 +33,7 @@ fi
 bindkey '^\' autosuggest-toggle         # Ctrl+\ -> Toggle autosuggestions
 
 # ---------------------------------------------------------
-# 4. HISTORY NAVIGATION & SEARCH (Bash / Emacs Mode)
+# 4. HISTORY SEARCH
 # ---------------------------------------------------------
-bindkey '^P' up-line-or-history               # Ctrl+P -> Previous history
-bindkey '^N' down-line-or-history             # Ctrl+N -> Next history (like bash)
 bindkey '^[[A' history-substring-search-up    # Up arrow -> Search history
 bindkey '^[[B' history-substring-search-down  # Down arrow -> Search history

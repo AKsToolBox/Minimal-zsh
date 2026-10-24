@@ -47,6 +47,10 @@ zstyle ':completion:*' menu select
 # Example: "doc" can complete to "Documents"
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'  # lowercase input matches upper and lower
 
+# Ensure sudo completion resolves commands & subcommand helpers in sbin directories
+zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin
+zstyle ':completion:*:sudo:*' environ PATH="$PATH:/usr/local/sbin:/usr/sbin:/sbin"
+
 # =========================================================
 # Fuzzy finder
 # =========================================================

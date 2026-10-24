@@ -24,5 +24,5 @@ export GPG_TTY=$(tty)
 export STARSHIP_CONFIG="$ZDOTDIR/starship.toml"
 
 # ---------- PATH ----------
-# Personal binaries/scripts
-export PATH="$HOME/.local/bin:$PATH"
+# Personal binaries/scripts & administrative sbin paths
+export PATH="$HOME/.local/bin:$HOME/.gemini/bin:$PATH:/usr/local/sbin:/usr/sbin:/sbin"
