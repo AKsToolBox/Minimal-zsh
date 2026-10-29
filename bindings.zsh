@@ -22,6 +22,11 @@ bindkey '^[^H' backward-kill-word       # Alt+Backspace (alt sequence)
 bindkey '^[d' kill-word                 # Alt+D -> Kill word forward
 bindkey '^U' backward-kill-line         # Ctrl+U -> Kill line backward (Bash style)
 
+# Shift+Enter -> Insert newline without running (multi-line buffer editing)
+bindkey '^[OM' self-insert-unmeta
+bindkey '^[[27;2;13~' self-insert-unmeta
+bindkey '^[[13;2u' self-insert-unmeta
+
 # ---------------------------------------------------------
 # 2. FZF FILE PICKER
 # ---------------------------------------------------------
