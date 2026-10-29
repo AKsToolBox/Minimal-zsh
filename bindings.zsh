@@ -10,12 +10,12 @@ bindkey -e
 # ---------------------------------------------------------
 bindkey '^F' .forward-char              # Ctrl+F -> strictly 1 char forward (never accepts ghost text)
 bindkey '^B' .backward-char             # Ctrl+B -> strictly 1 char backward
-bindkey '^[f' forward-word              # Alt+F -> Forward word
-bindkey '^[F' forward-word              # Alt+Shift+F -> Forward word
-bindkey '^[b' backward-word             # Alt+B -> Backward word
-bindkey '^[B' backward-word             # Alt+Shift+B -> Backward word
-bindkey '^[[1;5C' forward-word          # Ctrl+Right -> Forward word
-bindkey '^[[1;5D' backward-word         # Ctrl+Left -> Backward word
+bindkey '^[f' .forward-word             # Alt+F -> strictly 1 word forward (never accepts ghost text)
+bindkey '^[F' .forward-word             # Alt+Shift+F -> strictly 1 word forward
+bindkey '^[b' .backward-word            # Alt+B -> strictly 1 word backward
+bindkey '^[B' .backward-word            # Alt+Shift+B -> strictly 1 word backward
+bindkey '^[[1;5C' .forward-word         # Ctrl+Right -> strictly 1 word forward
+bindkey '^[[1;5D' .backward-word        # Ctrl+Left -> strictly 1 word backward
 bindkey '^[^?' backward-kill-word       # Alt+Backspace -> Kill word backward
 bindkey '^[[3;3~' backward-kill-word    # Alt+Backspace (alt sequence)
 bindkey '^[^H' backward-kill-word       # Alt+Backspace (alt sequence)
