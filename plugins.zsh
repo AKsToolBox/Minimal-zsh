@@ -23,6 +23,13 @@ zplugin-update() {
   done
 }
 
-_zplugin_load zsh-users zsh-autosuggestions
+# Only load zsh-autosuggestions if ezlo is not installed.
+# (ezlo provides native inline ghost-text autosuggestions + dropdown in POSTDISPLAY;
+# running zsh-autosuggestions alongside ezlo causes async POSTDISPLAY overwrites and menu flicker.)
+if ! command -v ezlo >/dev/null 2>&1; then
+  typeset -ga ZSH_AUTOSUGGEST_ACCEPT_WIDGETS
+  ZSH_AUTOSUGGEST_ACCEPT_WIDGETS=(end-of-line vi-end-of-line vi-add-eol)
+  _zplugin_load zsh-users zsh-autosuggestions
+fi
+
 _zplugin_load zsh-users zsh-history-substring-search
-_zplugin_load zdharma-continuum fast-syntax-highlighting

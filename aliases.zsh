@@ -73,3 +73,17 @@ alias haven-notify='/vm-storage/pentest/Working/scripts/haven-notify.py'
 # =========================================================
 
 alias pentest-ai='/vm-storage/AI/scripts/venv/bin/python /vm-storage/AI/scripts/pentest_ai.py'
+
+# =========================================================
+# PC Controls MCP Server
+# =========================================================
+
+alias pc-controls-mcp='/vm-storage/AI/scripts/venv/bin/python /vm-storage/AI/scripts/pc_controls_mcp.py'
+
+# =========================================================
+# Safe Crisis Power-Down / Preservation
+# =========================================================
+
+alias safe-powerdown='bash /vm-storage/AI/scripts/safe_powerdown.sh'
+alias safe-powerdown-dry='bash /vm-storage/AI/scripts/safe_powerdown.sh --dry-run'
+

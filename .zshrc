@@ -62,13 +62,6 @@ if [[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ]]; then
 fi
 
 # =========================================================
-# Navi (cheatsheet widget)
-# =========================================================
-if command -v navi >/dev/null 2>&1; then
-  eval "$(navi widget zsh)"
-fi
-
-# =========================================================
 # Modular Config Files
 # =========================================================
 
@@ -78,16 +71,19 @@ source "$ZDOTDIR/fzf.zsh"
 # Aliases
 source "$ZDOTDIR/aliases.zsh"
 
+# Plugins and plugin manager (loaded before bindings & ezlo so widgets exist)
+source "$ZDOTDIR/plugins.zsh"
+
 # Custom keybindings
 source "$ZDOTDIR/bindings.zsh"
 
-# Plugins and plugin manager
-source "$ZDOTDIR/plugins.zsh"
+# Ezlo integration, ghost text & recipes
+if [[ -n "${ZDOTDIR:-}" && -f "$ZDOTDIR/ezlo.zsh" ]]; then
+  source "$ZDOTDIR/ezlo.zsh"
+fi
 
 # Prompt/theme
 source "$ZDOTDIR/prompt.zsh"
 
 # Local machine secrets & overrides (Git-ignored)
 [[ -f "$ZDOTDIR/local.zsh" ]] && source "$ZDOTDIR/local.zsh"
-
-
