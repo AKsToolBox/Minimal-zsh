@@ -47,3 +47,29 @@ bindkey '^P' up-line-or-history               # Ctrl+P -> Previous history (like
 bindkey '^N' down-line-or-history             # Ctrl+N -> Next history (like Bash)
 bindkey '^[[A' history-substring-search-up    # Up arrow -> Search history
 bindkey '^[[B' history-substring-search-down  # Down arrow -> Search history
+
+# ---------------------------------------------------------
+# 5. NATURAL LANGUAGE COMMAND TRANSLATION (Gemini API)
+# ---------------------------------------------------------
+_ezlo_ai_query() {
+  if [[ -z "$BUFFER" ]]; then
+    return
+  fi
+
+  local original_query="$BUFFER"
+  zle -M "Translating via Gemini API..."
+
+  local translated_cmd
+  translated_cmd=$(~/.local/bin/ezlo-ai-translate "$original_query")
+
+  if [[ -n "$translated_cmd" ]]; then
+    BUFFER="$translated_cmd"
+    CURSOR=$#BUFFER
+    zle -M "Translated: $original_query"
+  else
+    zle -M "Translation failed or empty output."
+  fi
+}
+zle -N _ezlo_ai_query
+bindkey '^[k' _ezlo_ai_query                  # Alt+K -> Translate prompt via Gemini API
+

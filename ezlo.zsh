@@ -27,4 +27,7 @@ if command -v ezlo >/dev/null 2>&1; then
 
   # Bind Ctrl+\ to toggle ezlo suggestions & ghost text on/off
   bindkey '^\' _ezlo_toggle
+
+  # Bind Alt+K to Gemini natural language command translation widget
+  bindkey '^[k' _ezlo_ai_query
 fi
