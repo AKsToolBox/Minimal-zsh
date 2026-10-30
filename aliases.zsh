@@ -86,4 +86,5 @@ alias pc-controls-mcp='/vm-storage/AI/scripts/venv/bin/python /vm-storage/AI/scr
 
 alias safe-powerdown='bash /vm-storage/AI/scripts/safe_powerdown.sh'
 alias safe-powerdown-dry='bash /vm-storage/AI/scripts/safe_powerdown.sh --dry-run'
+alias safe-powerdown-5m='bash /vm-storage/AI/scripts/safe_powerdown.sh --delay 5'
 
