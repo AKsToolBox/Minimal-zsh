@@ -23,6 +23,9 @@ export GPG_TTY=$(tty)
 # ---------- Starship ----------
 export STARSHIP_CONFIG="$ZDOTDIR/starship.toml"
 
+# ---------- Ezlo ----------
+export EZLO_CONFIG_DIR="$ZDOTDIR/ezlo"
+
 # ---------- PATH ----------
 # Personal binaries/scripts & administrative sbin paths
 export GOPATH="${GOPATH:-$HOME/go}"

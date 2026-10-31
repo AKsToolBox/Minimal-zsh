@@ -1,0 +1,5 @@
+# Ezlo configuration (~/.config/zsh/ezlo/config.toml)
+
+[complete.translate]
+# Disables comment/natural language translation prompt so ezlo never intercepts typed commands
+command = []

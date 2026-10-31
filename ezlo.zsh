@@ -3,6 +3,9 @@
 # =========================================================
 
 if command -v ezlo >/dev/null 2>&1; then
+  # Configuration directory inside zsh dotfiles repository
+  export EZLO_CONFIG_DIR="${EZLO_CONFIG_DIR:-${ZDOTDIR:-$HOME/.config/zsh}/ezlo}"
+
   # Enable ezlo's native inline ghost-text autosuggestions from history & specs
   export EZLO_GHOST=on
 
